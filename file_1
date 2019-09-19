@@ -2,15 +2,15 @@ a = []
 b = []
 c = []
 d = []
-e = []
-chs = 0
-chf = 0
-nchs = 0
-nchf = 0
+e = []  # 다섯개의 빈 문 설정
+chs = 0 # 바꾸고 성공
+chf = 0 # 바꾸고 실패
+nchs = 0 # 안바꾸고 성공
+nchf = 0 # 안바꾸고 실패
 p = 0
 import random
 while p < 1000000 :
-    r = random.randint(1,5)
+    r = random.randint(1,5)  # 처음 차의 위치 랜덤으로 고르기
     if r == 1 :
         a.append(0)
     elif r == 2 :
@@ -18,11 +18,11 @@ while p < 1000000 :
     elif r == 4 :
         d.append(0)
     elif r == 5 :
-        e.append(0)# 0 = 차 위치
+        e.append(0)          # 0 = 차 위치
     else:
         c.append(0)
         
-    z = random.randint(1,5)
+    z = random.randint(1,5)  # 참가자가 처음으로 고를 문 랜덤으로 고르기
     if z == 1 :
         a.append(1)
     elif z == 2 :               # 1 = 처음 고른 위치
@@ -35,7 +35,7 @@ while p < 1000000 :
         c.append(1)
         
     if len(a) == 2 or len(b) == 2 or len(c) == 2 or len(d) == 2 or len(e) == 2:    # 처음 고른게 성공일때
-        w = random.randint(4,5)
+        w = random.randint(4,5) # 랜덤함수로 선택을 바꿀지 여부 결정
         if w == 4 :
             nchs = nchs + 1
         else :                     #4 = 안바꾸기. 5 = 바꾸기
@@ -50,12 +50,12 @@ while p < 1000000 :
     del b[:]
     del c[:]
     del d[:]
-    del e[:]
+    del e[:]    # 각 리스트 초기화
     p = p + 1
 import matplotlib.pyplot as plt
 result_name = ['chs','chf','nchs','nchf']
 result = [chs, chf, nchs, nchf]
-plt.bar(range(4),result, width = 0.5)
+plt.bar(range(4),result, width = 0.5)    # 결과를 그래프로 표시
 plt.xticks(range(4), result_name)
 plt.show()
 print(chs,chf,nchs,nchf)
